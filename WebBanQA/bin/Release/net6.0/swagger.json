@@ -1,0 +1,816 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebBanQA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/getCartByUser/{userName}": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cart"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cart/insert": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "CD_PID",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_COLslug",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_S_name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_amount",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/cart/update": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "CD_PID",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_COLslug",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_S_name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "amount",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/cart/delete": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "CD_PID",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_COLslug",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CD_S_name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/getCatalog/{style}": {
+      "get": {
+        "tags": [
+          "Catalog"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "style",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Catalog"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getColor/{style}": {
+      "get": {
+        "tags": [
+          "Color"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "style",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Color"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/topSaleProduct/{number}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "number",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/detailProduct/{slug}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/randomProduct/{number}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "number",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getProductByStyle/{style}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "style",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getSize/{style}": {
+      "get": {
+        "tags": [
+          "Size"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "style",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Size"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getStyle": {
+      "get": {
+        "tags": [
+          "Style"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Style"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/login/{username}/{password}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "fname",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "lname",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "uname",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phonenumber",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "address",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/checkAccount": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Cart": {
+      "type": "object",
+      "properties": {
+        "carId": {
+          "type": "string"
+        },
+        "carUid": {
+          "type": "string"
+        },
+        "carSelect": {
+          "type": "string"
+        },
+        "carStatus": {
+          "type": "string"
+        },
+        "carDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "carU": {
+          "$ref": "#/definitions/User"
+        },
+        "cartdeta": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cartdetum"
+          }
+        }
+      }
+    },
+    "Cartdetum": {
+      "type": "object",
+      "properties": {
+        "cdId": {
+          "type": "string"
+        },
+        "cdPid": {
+          "type": "string"
+        },
+        "cdCarId": {
+          "type": "string"
+        },
+        "cdColslug": {
+          "type": "string"
+        },
+        "cdSName": {
+          "type": "string"
+        },
+        "cdAmount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cdCar": {
+          "$ref": "#/definitions/Cart"
+        },
+        "cdP": {
+          "$ref": "#/definitions/Product"
+        }
+      }
+    },
+    "Catalog": {
+      "type": "object",
+      "properties": {
+        "caId": {
+          "type": "string"
+        },
+        "caName": {
+          "type": "string"
+        },
+        "caStid": {
+          "type": "string"
+        },
+        "caSt": {
+          "$ref": "#/definitions/Style"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        }
+      }
+    },
+    "Color": {
+      "type": "object",
+      "properties": {
+        "colId": {
+          "type": "string"
+        },
+        "colName": {
+          "type": "string"
+        },
+        "colSlug": {
+          "type": "string"
+        },
+        "colPid": {
+          "type": "string"
+        },
+        "colP": {
+          "$ref": "#/definitions/Product"
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "comId": {
+          "type": "string"
+        },
+        "comContent": {
+          "type": "string"
+        },
+        "comUid": {
+          "type": "string"
+        },
+        "comPid": {
+          "type": "string"
+        },
+        "comP": {
+          "$ref": "#/definitions/Product"
+        },
+        "comU": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "pId": {
+          "type": "string"
+        },
+        "pName": {
+          "type": "string"
+        },
+        "pDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "pPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "pImage": {
+          "type": "string"
+        },
+        "pNote": {
+          "type": "string"
+        },
+        "pAmount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pContent": {
+          "type": "string"
+        },
+        "pCaid": {
+          "type": "string"
+        },
+        "pSlug": {
+          "type": "string"
+        },
+        "pCa": {
+          "$ref": "#/definitions/Catalog"
+        },
+        "cartdeta": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cartdetum"
+          }
+        },
+        "colors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Color"
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "sizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Size"
+          }
+        }
+      }
+    },
+    "Size": {
+      "type": "object",
+      "properties": {
+        "sId": {
+          "type": "string"
+        },
+        "sName": {
+          "type": "string"
+        },
+        "sPid": {
+          "type": "string"
+        },
+        "sp": {
+          "$ref": "#/definitions/Product"
+        }
+      }
+    },
+    "Style": {
+      "type": "object",
+      "properties": {
+        "stId": {
+          "type": "string"
+        },
+        "stName": {
+          "type": "string"
+        },
+        "stSlug": {
+          "type": "string"
+        },
+        "catalogs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Catalog"
+          }
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "uId": {
+          "type": "string"
+        },
+        "uFname": {
+          "type": "string"
+        },
+        "uLname": {
+          "type": "string"
+        },
+        "uEmail": {
+          "type": "string"
+        },
+        "uStatus": {
+          "type": "string"
+        },
+        "uAdd": {
+          "type": "string"
+        },
+        "uName": {
+          "type": "string"
+        },
+        "uContact": {
+          "type": "string"
+        },
+        "uCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "uPass": {
+          "type": "string"
+        },
+        "carts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cart"
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        }
+      }
+    }
+  }
+}
